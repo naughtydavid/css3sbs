@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<style type="text/css">
+	.playground{
+		position: relative;
+		height: 450px;
+
+		-webkit-perspective: 1360px;
+		-moz-perspective: 1360px;
+		perspective: 1360px;
+
+		-webkit-transform-style: preserve-3d;
+
+		background: url(grid.gif);
+
+	}
+	.box{
+		height: 200px;
+		width: 200px;
+
+		-webkit-transition: all ease 500ms;
+
+		-webkit-transform: translateZ( 200px );
+		-moz-transform: translateZ( 100px );
+		transform: translateZ( 100px );
+
+
+		-webkit-animation: rotate 9s;
+		-webkit-animation-timing-function: linear;
+		-webkit-animation-iteration-count: infinite;    
+
+		-moz-animation: rotate 9s;
+		-moz-animation-timing-function: linear;
+		-moz-animation-iteration-count: infinite;    
+
+		animation: rotate 9s;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;    
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: -100px 0 0 -100px;
+
+		-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		transform-style: preserve-3d;		
+
+	}
+	.box.small{
+		-webkit-transform: translateZ(100px);		
+		top: 20%;
+		left: 20%;		
+	}
+
+
+	.box .face{
+		width: 199px;
+		height: 199px;
+		display: block;
+		position: absolute;
+		border: 1px solid hsl(203, 100%, 37%);
+		font-size: 0px;
+		background: none #fff no-repeat center center ;
+		background-size: contain;
+	}
+
+	.box .face:nth-child(1){
+		-webkit-transform: rotateY(0deg) translateZ(99px);
+		-moz-transform: rotateY(0deg) translateZ(99px);
+		transform: rotateY(0deg) translateZ(99px);
+	}
+	.box .face:nth-child(2){
+		-webkit-transform: rotateX(180deg) translateZ( 99px );
+		-moz-transform: rotateX(180deg) translateZ( 99px );
+		transform: rotateX(180deg) translateZ( 99px );
+	}
+	.box .face:nth-child(3){
+		-webkit-transform: rotateY(90deg) translateZ( 99px );
+		-moz-transform: rotateY(90deg) translateZ( 99px );
+		transform: rotateY(90deg) translateZ( 99px );
+	}
+	.box .face:nth-child(4){
+		-webkit-transform: rotateY(-90deg) translateZ( 99px );
+		-moz-transform: rotateY(-90deg) translateZ( 99px );
+		transform: rotateY(-90deg) translateZ( 99px );
+	}
+	.box .face:nth-child(5){
+		-webkit-transform: rotateX(90deg) translateZ( 99px );
+		-moz-transform: rotateX(90deg) translateZ( 99px );
+		transform: rotateX(90deg) translateZ( 99px );
+	}
+	.box .face:nth-child(6){
+		-webkit-transform: rotateX(-90deg) translateZ( 99px );
+		-moz-transform: rotateX(-90deg) translateZ( 99px );
+		transform: rotateX(-90deg) translateZ( 99px );
+	}
+
+	.drop-shadow{
+
+	}
+
+	#playground1,
+	#playground2{
+		width: 50%;
+		float: left;
+		-webkit-transform: scaleX(0.5);
+	}
+
+	#playground1{
+		/* -webkit-perspective-origin: 394px 225px; */
+	}
+
+
+	#playground2{
+		/* -webkit-perspective-origin: 398px 225px; */
+	}
+
+	.box{
+		
+
+		-webkit-transform: rotateX(-180deg) rotateY(180deg);
+	}
+	.box.play{
+		
+		
+	}
+
+	#box1{
+		
+	}
+	#box2{
+		
+	}
+
+	.info{
+		position: absolute;
+		bottom: 0;
+		font-size: 20px;
+		font-variant: upper-case;
+	}
+	
+	</style>
+
+</head>
+<body>
+
+	<div id="playground1" class='playground'>
+		
+	
+		<div id="box1a" class="box">
+			<span class='face'>1</span><span class='face'>2</span><span class='face'>3</span><span class='face'>4</span><span class='face'>5</span><span class='face'>6</span>			
+		</div>
+		
+
+		<div id="box1b" class="box small">
+			<span class='face'>1</span><span class='face'>2</span><span class='face'>3</span><span class='face'>4</span><span class='face'>5</span><span class='face'>6</span>			
+		</div>
+		
+
+
+
+
+		<div class="info"></div>
+	</div>
+
+	<div id="playground2"  class='playground'>
+		
+		<div id="box2a" class="box">
+			<span class='face'>1</span><span class='face'>2</span><span class='face'>3</span><span class='face'>4</span><span class='face'>5</span><span class='face'>6</span>			
+		</div>
+		
+		
+		<div id="box2b" class="box small">
+			<span class='face'>1</span><span class='face'>2</span><span class='face'>3</span><span class='face'>4</span><span class='face'>5</span><span class='face'>6</span>			
+		</div>
+		
+
+		<div class="info"></div>
+	</div>
+
+	<script src="js/jquery.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		perspective = {
+			x : parseInt($('#playground1').css('-webkit-perspective-origin').split(' ')[0].replace('px','')),
+			y : parseInt($('#playground1').css('-webkit-perspective-origin').split(' ')[1].replace('px',''))
+		}
+		zoom = 1360;		
+		loadView();
+
+		$(window).keydown(function(e){
+			switch(e.keyCode){
+				case 40:
+				zoom += 10;
+				break;
+				case 38:
+				zoom -= 10;
+				break;
+				case 32:
+				$('.box').toggleClass('play')
+				break;
+
+			}
+			console.log(e.keyCode, zoom, perspective);
+			moveBox();
+
+		})
+
+
+	})
+
+	function loadView(){
+
+		$('#playground1').css('-webkit-perspective-origin', (perspective.x - 10) + "px " + perspective.y + "px")
+		$('#playground2').css('-webkit-perspective-origin', (perspective.x + 10) + "px " + perspective.y + "px")
+	}
+
+
+	function moveBox(){
+		
+		$('.info').text("Depth: " + (10 - zoom))
+		$('#playground1').css('-webkit-perspective', zoom + "px");
+		$('#playground2').css('-webkit-perspective', zoom + "px");
+
+	}
+
+	</script>
+
+</body>
+</html>
