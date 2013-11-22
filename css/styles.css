@@ -1,0 +1,32 @@
+
+
+
+
+.experiments > div{
+	cursor: pointer;
+}
+
+#view-experiment{
+	display: none;
+}
+
+#view-experiment:-webkit-full-screen{
+	display: block;
+ width: 100% 
+}
+#view-experiment:-moz-full-screen{
+	display: block;
+ width: 100% 
+}
+#view-experiment:-ms-full-screen{
+	display: block;
+ width: 100% 
+}
+#view-experiment:-o-full-screen{
+	display: block;
+ width: 100% 
+}
+#view-experiment:full-screen{
+	display: block;
+ width: 100% 
+}
