@@ -115,21 +115,24 @@ body{
 
 #playground1,
 #playground2{
-	width: 100%;
-	-webkit-transform: scaleX(0.5);
+	width: 50%;
+	float: left;
+
+/*	width: 100%;
+-webkit-transform: scaleX(0.5);*/
 }
 
 #playground1{
 	/* -webkit-perspective-origin: 394px 225px; */
 	left: 0;
-	-webkit-transform-origin-x: 0;
+	/*-webkit-transform-origin-x: 0;*/
 }
 
 
 #playground2{
 	/* -webkit-perspective-origin: 398px 225px; */
 	right: 0;
-	-webkit-transform-origin-x: 100%;
+	/*-webkit-transform-origin-x: 100%;*/
 }
 
 .box{
