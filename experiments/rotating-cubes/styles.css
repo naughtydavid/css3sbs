@@ -11,8 +11,8 @@ body{
 	-moz-perspective: 1360px;
 	perspective: 1360px;
 
-	/*Background pattern taken from*/
-	/*http://lea.verou.me/css3patterns/#blueprint-grid*/
+	/* Background pattern taken from */
+	/* http://lea.verou.me/css3patterns/#blueprint-grid */
 
 	background-color: #269;
 	background-image: linear-gradient(#FFF 2px, rgba(0, 0, 0, 0) 2px), linear-gradient(90deg, #FFF 2px, rgba(0, 0, 0, 0) 2px), linear-gradient(rgba(255, 255, 255, 0.3) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, rgba(0, 0, 0, 0) 1px);
@@ -25,6 +25,8 @@ body{
 	width: 200px;
 
 	-webkit-transition: all ease 500ms;
+	-moz-transition: all ease 500ms;
+	transition: all ease 500ms;
 
 	-webkit-transform: translateZ( 100px );
 	-moz-transform: translateZ( 100px );
@@ -63,8 +65,8 @@ body{
 	
 	background-size: contain;
 
-	/*Background pattern taken from*/
-	/*http://cssdeck.com/labs/css-metallic-background*/
+	/* Background pattern taken from */
+	/* http://cssdeck.com/labs/css-metallic-background */
 	background: -webkit-radial-gradient(center, circle farthest-corner, rgba(255, 255, 255, 0) 50%, #C8C8C8), -webkit-radial-gradient(center, circle, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0) 21%), -webkit-radial-gradient(center, circle, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 21%), -webkit-radial-gradient(center, circle farthest-corner, #F0F0F0, #C0C0C0);
 	background: -moz-radial-gradient(center, circle farthest-corner, rgba(255,255,255,0) 50%, rgba(200,200,200,1)), -webkit-radial-gradient(center, circle, rgba(255,255,255,.35), rgba(255,255,255,0) 20%, rgba(255,255,255,0) 21%), -webkit-radial-gradient(center, circle, rgba(0,0,0,.2), rgba(0,0,0,0) 20%, rgba(0,0,0,0) 21%), -webkit-radial-gradient(center, circle farthest-corner, #f0f0f0, #c0c0c0);
 	background: -ms-radial-gradient(center, circle farthest-corner, rgba(255,255,255,0) 50%, rgba(200,200,200,1)), -webkit-radial-gradient(center, circle, rgba(255,255,255,.35), rgba(255,255,255,0) 20%, rgba(255,255,255,0) 21%), -webkit-radial-gradient(center, circle, rgba(0,0,0,.2), rgba(0,0,0,0) 20%, rgba(0,0,0,0) 21%), -webkit-radial-gradient(center, circle farthest-corner, #f0f0f0, #c0c0c0);
@@ -113,19 +115,21 @@ body{
 
 #playground1,
 #playground2{
-	width: 50%;
-	float: left;
+	width: 100%;
+	-webkit-transform: scaleX(0.5);
 }
 
 #playground1{
 	/* -webkit-perspective-origin: 394px 225px; */
 	left: 0;
+	-webkit-transform-origin-x: 0;
 }
 
 
 #playground2{
 	/* -webkit-perspective-origin: 398px 225px; */
 	right: 0;
+	-webkit-transform-origin-x: 100%;
 }
 
 .box{
