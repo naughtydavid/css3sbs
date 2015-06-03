@@ -27,7 +27,7 @@ $(function(){
 		moveBox();
 
 	})
-
+	$('.box').toggleClass('play');
 
 })
 
