@@ -26,7 +26,9 @@ $(function(){
 		console.log(e.keyCode, zoom, perspective);
 		moveBox();
 
-	})
+	});
+	
+	moveBox();
 
 
 })
