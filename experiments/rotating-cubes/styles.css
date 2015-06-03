@@ -151,6 +151,7 @@ body{
 }
 
 .info{
+	display: none;
 	position: absolute;
 	bottom: 0;
 	font-size: 20px;
